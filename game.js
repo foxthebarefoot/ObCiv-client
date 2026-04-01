@@ -9,8 +9,8 @@ let historyItems = [];
 
 // --- API helpers ---
 const API_BASE = window.location.hostname === "localhost"
-    ? ""
-    : "https://api.obciv.kimminjae.me";
+    ? "http://localhost:5000"
+    : "https://t4puaphdlkezugcvvfo2p32yra0dysqw.lambda-url.ap-northeast-2.on.aws";
 
 async function api(method, path, body) {
     const opts = { method, headers: { "Content-Type": "application/json" } };
