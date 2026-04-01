@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObCiv</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Title Screen -->
+        <div id="title-screen">
+            <h1>ObCiv</h1>
+            <p class="title-tagline" id="title-tagline"></p>
+            <p class="subtitle" id="subtitle">Emergent Civilization Simulation</p>
+            <p class="title-attribution" id="title-attribution"></p>
+            <div class="title-controls">
+                <div class="lang-picker">
+                    <label id="lang-label">Lang:</label>
+                    <div class="lang-buttons">
+                        <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">English</button>
+                        <button type="button" class="lang-btn" data-lang="ko" aria-pressed="false">한국어</button>
+                    </div>
+                </div>
+                <div class="seed-input">
+                    <label for="seed-field" id="seed-label">Seed:</label>
+                    <input type="text" id="seed-field" placeholder="Leave empty for random">
+                </div>
+                <button id="btn-new-game">New Game</button>
+                <button id="btn-load-save" type="button">Load Save</button>
+                <input type="file" id="file-load" accept=".json" style="display:none">
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" style="display:none">
+            <div id="header"></div>
+            <div id="systems-bar"></div>
+            <div id="tension-panel"></div>
+            <div id="coupling-panel"></div>
+            <div id="event-panel"></div>
+            <div id="choices-panel"></div>
+            <div id="input-panel" style="display:none"></div>
+            <div id="dilemma-panel" style="display:none"></div>
+            <hr class="divider">
+            <div id="doctrines-panel"></div>
+            <div id="generation-end" style="display:none"></div>
+            <div id="timeline-panel"></div>
+            <div id="history-panel" style="display:none"></div>
+        </div>
+
+        <!-- Summary Screen (between generations) -->
+        <div id="summary-screen" style="display:none">
+            <div id="summary-content"></div>
+            <button id="btn-continue">Next Generation</button>
+        </div>
+    </div>
+    <script src="i18n.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
