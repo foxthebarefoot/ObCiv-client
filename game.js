@@ -8,10 +8,14 @@ let historyError = "";
 let historyItems = [];
 
 // --- API helpers ---
+const API_BASE = window.location.hostname === "localhost"
+    ? ""
+    : "https://api.obciv.kimminjae.me";
+
 async function api(method, path, body) {
     const opts = { method, headers: { "Content-Type": "application/json" } };
     if (body !== undefined) opts.body = JSON.stringify(body);
-    const res = await fetch(path, opts);
+    const res = await fetch(API_BASE + path, opts);
     return res.json();
 }
 
@@ -1142,7 +1146,7 @@ async function saveGame() {
         filename = `obciv_${gameState.world.seed}.json`;
     }
     try {
-        const res = await fetch("/api/export", { method: "GET" });
+        const res = await fetch(API_BASE + "/api/export", { method: "GET" });
         if (res.status === 404) {
             let detail = "";
             try {
@@ -1194,7 +1198,7 @@ fileLoad.addEventListener("change", async () => {
     const form = new FormData();
     form.append("save", file);
     try {
-        const resp = await fetch("/api/import", { method: "POST", body: form });
+        const resp = await fetch(API_BASE + "/api/import", { method: "POST", body: form });
         const data = await resp.json();
         if (data.status === "ok") {
             gameState = data.state;
