@@ -78,6 +78,7 @@ document.getElementById("btn-new-game").addEventListener("click", async () => {
 });
 
 // --- Load existing ---
+syncLangUI();
 (async function init() {
     const data = await api("GET", "/api/state");
     if (data.status === "ok") {
